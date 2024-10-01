@@ -46,3 +46,16 @@ function setTextElementById(elementId, value) {
     
 }
 
+function gameOver() {
+    showElementById('score-board')
+    hideElementById('play-ground')
+    const score = getTextElementById('score')
+    setTextElementById('final-score', score)
+    
+    const currentAlphabetElement = document.getElementById('current-alphabet')
+    const currentAlphabet  = currentAlphabetElement.innerText
+    
+    
+    removeBackgroundColorById(currentAlphabet)
+}
+

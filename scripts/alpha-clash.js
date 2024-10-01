@@ -3,6 +3,10 @@
 function handleKeyboardButtonPress(event) {
     const userPressedAlphabet = event.key;
 
+    if (userPressedAlphabet === "Escape") {
+        gameOver()
+    }
+
 
     const expectedAlphabetElement = document.getElementById("current-alphabet")
     const expectedAlphabetText = expectedAlphabetElement.innerText;
@@ -25,12 +29,13 @@ function handleKeyboardButtonPress(event) {
         const value = life - 1
         setTextElementById('life', value)
 
-        
-       
+        if (value === 0) {
+            gameOver()
+            
+        }
+
 
     }
-
-
 
 }
 
@@ -54,6 +59,12 @@ function continueGame() {
 
 function play() {
     hideElementById('home-screen');
+    hideElementById('score-board');
     showElementById('play-ground');
+
+    setTextElementById('score',0)
+    setTextElementById('life',10)
+    
     continueGame();
 }
+
