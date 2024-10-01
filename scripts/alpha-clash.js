@@ -1,19 +1,48 @@
-// function play(){
-//     // step-1: hide the home screen. to hide the screen add the class hidden to the home section
-//     const homeSection = document.getElementById('home-screen');
-//     homeSection.classList.add('hidden');
-//     // console.log(homeSection.classList)
 
-//     // show the playground
-//     const playgroundSection = document.getElementById('play-ground');
-//     playgroundSection.classList.remove('hidden');
-//     // console.log(playgroundSection.classList)
-// }
 
-function continueGame(){
+function handleKeyboardButtonPress(event) {
+    const userPressedAlphabet = event.key;
+
+
+    const expectedAlphabetElement = document.getElementById("current-alphabet")
+    const expectedAlphabetText = expectedAlphabetElement.innerText;
+    const expectedAlphabet = expectedAlphabetText.toLowerCase();
+
+
+    if (userPressedAlphabet === expectedAlphabet) {
+        const score = getTextElementById('score')
+        const value = score + 1
+        setTextElementById('score',value)
+
+
+        removeBackgroundColorById(expectedAlphabet)
+        continueGame()
+
+
+    }
+    else {
+        const life = getTextElementById('life')
+        const value = life - 1
+        setTextElementById('life', value)
+
+        
+       
+
+    }
+
+
+
+}
+
+document.addEventListener('keyup', handleKeyboardButtonPress)
+
+
+
+
+function continueGame() {
     // step -1: generate a random alphabet
     const alphabet = getARandomAlphabet();
-    console.log('your random alphabet', alphabet);
+
 
     // set randomly generated alphabet to the screen (show it)
     const currentAlphabetElement = document.getElementById('current-alphabet');
@@ -23,7 +52,7 @@ function continueGame(){
     setBackgroundColorById(alphabet);
 }
 
-function play(){
+function play() {
     hideElementById('home-screen');
     showElementById('play-ground');
     continueGame();

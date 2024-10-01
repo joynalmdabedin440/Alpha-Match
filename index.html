@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alpha Clash Pro</title>
+    <title>Alpha Match</title>
     <!-- daisy UI and Tailwind -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.6.1/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -18,7 +18,7 @@
         <!-- home screen -->
         <section id="home-screen" class="min-h-screen text-white flex justify-center items-center">
             <div class="flex flex-col items-center gap-10">
-                <h1 class="text-8xl font-anton uppercase">Alpha Clash Pro</h1>
+                <h1 class="text-8xl font-anton uppercase">Alpha Match</h1>
                 <p>Unleash Your Keyboard Kun g Fu : Press “Enter” to Play</p>
                 <button onclick="play()" class="btn bg-white text-black">Play Now</button>
             </div>
@@ -76,15 +76,15 @@
                 <!-- keyboard end -->
                 <!-- life score -->
                 <div class="flex justify-between w-3/4">
-                    <button class="btn rounded-full bg-purple-300 text-white px-4">
+                    <button class="btn rounded-full bg-purple-700 text-white px-4 hover:text-black">
                         Life
                         <img src="images/heart.svg" alt="">
-                        <span>1</span>
+                        <span id="life">10</span>
                     </button>
-                    <button class="btn rounded-full bg-purple-700 text-white px-4">
+                    <button class="btn rounded-full bg-purple-700 text-white px-4 hover:text-black">
                         Score
                         <img src="images/dollar.svg" alt="">
-                        <span>1</span>
+                        <span id="score">0</span>
                     </button>
 
                 </div>
@@ -92,7 +92,7 @@
         </section>
         <!-- playground end -->
         <!-- final Score start -->
-        <section class="score flex justify-center items-center min-h-screen hidden">
+        <section id="score-board" class="score flex justify-center items-center min-h-screen hidden">
             <div class="text-white text-center space-y-6 bg-[#FFFFFF33] p-4 rounded-lg">
                 <h1 class="text-8xl">
                     <span class="font-extrabold">Score:</span>
